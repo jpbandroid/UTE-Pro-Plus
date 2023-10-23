@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "UltraTextEdit (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "UltraTextEdit (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
