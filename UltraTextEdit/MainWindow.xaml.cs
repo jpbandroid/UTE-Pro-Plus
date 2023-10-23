@@ -10,6 +10,7 @@ using UltraTextEdit.Views;
 using Windows.Graphics;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Core.Preview;
 using WinUIEx;
 using Colors = Microsoft.UI.Colors;
 
@@ -68,6 +69,13 @@ namespace UltraTextEdit
             AddTabItem();
         }
 
+        private void TabbedView_TabCloseRequested(TabView sender, TabViewTabCloseRequestedEventArgs args)
+        {
+            var TI = args.Item;
+            TabbedView.TabItems.Remove(TI);
+            LoadBounds();
+        }
+
         public void AddTabItem()
         {
             var TI = new TabViewItem();
@@ -90,6 +98,11 @@ namespace UltraTextEdit
             TabbedView.TabItems.Add(TI);
             TabbedView.SelectedIndex = TabbedView.TabItems.IndexOf(TI);
             LoadBounds();
+        }
+
+        public void RemoveTabItem(TabViewItem sender)
+        {
+            
         }
 
         public void LoadBounds()

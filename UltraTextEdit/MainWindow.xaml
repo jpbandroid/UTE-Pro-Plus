@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TabView Background="{x:Null}" BorderBrush="{x:Null}" x:Name="TabbedView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonClick="TabbedView_AddTabButtonClick" Margin="0, 8, 0, 0">
+        <TabView Background="{x:Null}" BorderBrush="{x:Null}" x:Name="TabbedView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonClick="TabbedView_AddTabButtonClick" Margin="0, 8, 0, 0" TabCloseRequested="TabbedView_TabCloseRequested">
             <TabView.TabStripHeader>
                 <Border MinWidth="10" Height="40"/>
             </TabView.TabStripHeader>
