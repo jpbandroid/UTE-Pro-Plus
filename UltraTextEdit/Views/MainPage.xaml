@@ -96,6 +96,7 @@
     SelectionFlyout="{x:Null}"
     TextChanged="RichEditBox_TextChanged"
                 RelativePanel.Below="ribbon"
+                Background="Transparent"
     
             RelativePanel.AlignLeftWithPanel="True"
             RelativePanel.AlignRightWithPanel="True"

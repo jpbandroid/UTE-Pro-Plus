@@ -71,7 +71,7 @@ namespace UltraTextEdit
         public void AddTabItem()
         {
             var TI = new TabViewItem();
-            TI.Header = "New Tab";
+            TI.Header = "New Document";
             TI.IconSource = new SymbolIconSource()
             {
                 Symbol = Symbol.Document
