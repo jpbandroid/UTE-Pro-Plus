@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <Grid>
         <RelativePanel>
-            <controls:TabbedCommandBar RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="ribbon">
+            <controls:TabbedCommandBar RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="ribbon" Background="Transparent">
                 <controls:TabbedCommandBar.PaneFooter>
                     <CommandBar Background="Transparent" DefaultLabelPosition="Right">
                         <AppBarButton Label="Share" Icon="Share"/>
@@ -16,7 +16,7 @@
                     </CommandBar>
                 </controls:TabbedCommandBar.PaneFooter>
                 <controls:TabbedCommandBar.MenuItems>
-                    <controls:TabbedCommandBarItem Header="Home">
+                    <controls:TabbedCommandBarItem Header="Home" Background="Transparent">
                         <AppBarButton Icon="Undo" Label="Undo"/>
                         <AppBarButton Icon="Redo" Label="Redo"/>
                         <AppBarButton Icon="Paste" Label="Paste"/>
@@ -48,7 +48,7 @@
                         <AppBarToggleButton Icon="Italic" Label="Italic" />
                         <AppBarToggleButton Icon="Underline" Label="Underline" />
                     </controls:TabbedCommandBarItem>
-                    <controls:TabbedCommandBarItem Header="Insert">
+                    <controls:TabbedCommandBarItem Header="Insert" Background="Transparent">
                         <AppBarButton Icon="Pictures" Label="Pictures">
                             <AppBarButton.Flyout>
                                 <MenuFlyout Placement="BottomEdgeAlignedLeft">
