@@ -1,16 +1,22 @@
-﻿<windowex:WindowEx
+<?xml version="1.0" encoding="utf-8"?>
+<winuiex:WindowEx
     x:Class="UltraTextEdit.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UltraTextEdit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:windowex="using:WinUIEx"
-    MinWidth="500"
-    MinHeight="500"
-    PersistenceId="MainWindow"
+    xmlns:winuiex="using:WinUIEx"
     mc:Ignorable="d">
-    <Window.SystemBackdrop>
-        <MicaBackdrop/>
-    </Window.SystemBackdrop>
-</windowex:WindowEx>
+
+    <Grid>
+        <TabView Background="{x:Null}" BorderBrush="{x:Null}" x:Name="TabbedView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonClick="TabbedView_AddTabButtonClick" Margin="0, 8, 0, 0">
+            <TabView.TabStripHeader>
+                <Border MinWidth="10" Height="40"/>
+            </TabView.TabStripHeader>
+            <TabView.TabStripFooter>
+                <Border x:Name="AppTitleBar" MinWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Margin="0, -8, 0, 0"/>
+            </TabView.TabStripFooter>
+        </TabView>
+    </Grid>
+</winuiex:WindowEx>
