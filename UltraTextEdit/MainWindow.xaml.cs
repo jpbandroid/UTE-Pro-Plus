@@ -27,11 +27,11 @@ namespace UltraTextEdit
         public MainWindow()
         {
             InitializeComponent();
-            WindowEx window = this;
-            window.SystemBackdrop = new MicaBackdrop()
+            SystemBackdrop = new MicaBackdrop()
             {
                 Kind = MicaKind.BaseAlt
             };
+
             var appWindow = AppWindow;
             var titleBar = appWindow.TitleBar;
             titleBar.ExtendsContentIntoTitleBar = true;
@@ -56,7 +56,7 @@ namespace UltraTextEdit
                 }
             }
 
-            window.SizeChanged += Window_SizeChanged;
+            SizeChanged += Window_SizeChanged;
         }
 
         private void Window_SizeChanged(object sender, WindowSizeChangedEventArgs args)
