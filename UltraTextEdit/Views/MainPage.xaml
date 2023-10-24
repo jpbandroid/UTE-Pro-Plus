@@ -40,9 +40,9 @@
                         <AppBarElementContainer>
                             <ComboBox x:Name="Combo3" IsEditable="True" ItemsSource="{x:Bind FontSizes}" Width="100" Loaded="Combo3_Loaded"  />
                         </AppBarElementContainer>
-                        <AppBarToggleButton Icon="Bold" Label="Bold" />
-                        <AppBarToggleButton Icon="Italic" Label="Italic" />
-                        <AppBarToggleButton Icon="Underline" Label="Underline" />
+                        <AppBarToggleButton Icon="Bold" Label="Bold" Click="BoldButton_Click"/>
+                        <AppBarToggleButton Icon="Italic" Label="Italic" Click="ItalicButton_Click"/>
+                        <AppBarToggleButton Icon="Underline" Label="Underline" Click="UnderlineButton_Click"/>
                     </controls:TabbedCommandBarItem>
                     <controls:TabbedCommandBarItem Header="Insert" Background="Transparent">
                         <AppBarButton Icon="Pictures" Label="Pictures">
