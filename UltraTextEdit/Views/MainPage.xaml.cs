@@ -220,7 +220,7 @@ public sealed partial class MainPage : Page
                 string text = reader.ReadString(buffer.Length);
                 // Load the file into the Document property of the RichEditBox.
                 editor.Document.LoadFromStream(TextSetOptions.FormatRtf, randAccStream);
-                //editor.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, text);
+                //editor.Document.SetText(TextSetOptions.FormatRtf, text);
                 //window.AppTitle.Text = file.Name + " - " + appTitleStr;
                 fileNameWithPath = file.Path;
             }
@@ -279,5 +279,80 @@ public sealed partial class MainPage : Page
 
         // Mark the event as handled so the framework doesn’t update the selected item automatically. 
         args.Handled = true;
+    }
+
+    private void BoldButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+            charFormatting.Bold = FormatEffect.Toggle;
+            selectedText.CharacterFormat = charFormatting;
+        }
+    }
+
+    private void ItalicButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+            charFormatting.Italic = FormatEffect.Toggle;
+            selectedText.CharacterFormat = charFormatting;
+        }
+    }
+
+    private void UnderlineButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+            if (charFormatting.Underline == UnderlineType.None)
+            {
+                charFormatting.Underline = UnderlineType.Single;
+            }
+            else
+            {
+                charFormatting.Underline = UnderlineType.None;
+            }
+            selectedText.CharacterFormat = charFormatting;
+        }
+    }
+
+    private void StrikeButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BoldButton_Off(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ItalicButton_Off(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void UnderlineButton_Off(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void SuperscriptCheck(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void SubscriptCheck(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void StrikeButton_Off(object sender, RoutedEventArgs e)
+    {
+
     }
 }
