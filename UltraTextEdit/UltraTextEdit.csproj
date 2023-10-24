@@ -17,6 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MainWIndow.xaml" />
+    <None Remove="Views\VersionDialog.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +40,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\VersionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="MainWIndow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

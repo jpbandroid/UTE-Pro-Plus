@@ -13,6 +13,7 @@
                     <CommandBar Background="Transparent" DefaultLabelPosition="Right">
                         <AppBarButton Label="Share" Icon="Share"/>
                         <AppBarButton Label="Comments" Icon="Message"/>
+                        <AppBarButton Label="About" Icon="Help" Click="AppBarButton_Click"/>
                     </CommandBar>
                 </controls:TabbedCommandBar.PaneFooter>
                 <controls:TabbedCommandBar.MenuItems>

@@ -355,4 +355,24 @@ public sealed partial class MainPage : Page
     {
 
     }
+
+    private async void DisplayAboutDialog()
+    {
+        ContentDialog aboutDialog = new ContentDialog()
+        {
+            XamlRoot = this.XamlRoot,
+            Title = "UltraTextEdit",
+            CloseButtonText = "OK",
+            DefaultButton = ContentDialogButton.Close,
+            Content = new VersionDialog()
+
+    };
+
+        await aboutDialog.ShowAsync();
+    }
+
+    private void AppBarButton_Click(object sender, RoutedEventArgs e)
+    {
+        DisplayAboutDialog();
+    }
 }
