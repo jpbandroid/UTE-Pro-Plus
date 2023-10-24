@@ -10,6 +10,7 @@ using Windows.Storage;
 using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
 using Microsoft.UI.Text;
+using Windows.Foundation.Metadata;
 
 namespace UltraTextEdit.Views;
 
@@ -25,6 +26,26 @@ public sealed partial class MainPage : Page
 
     public List<string> fonts => CanvasTextFormat.GetSystemFontFamilies().OrderBy(f => f).ToList();
 
+    public List<double> FontSizes
+    {
+        get;
+    } = new List<double>()
+            {
+                8,
+                9,
+                10,
+                11,
+                12,
+                14,
+                16,
+                18,
+                20,
+                24,
+                28,
+                36,
+                48,
+                72,
+                96};
 
     public MainPage()
     {
@@ -213,5 +234,50 @@ public sealed partial class MainPage : Page
     private void SaveButton_Click(object sender, RoutedEventArgs e)
     {
         SaveFile(true);
+    }
+
+    private void Combo3_Loaded(object sender, RoutedEventArgs e)
+    {
+        Combo3.SelectedIndex = 2;
+
+        if ((ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 7)))
+        {
+            Combo3.TextSubmitted += Combo3_TextSubmitted;
+        }
+    }
+
+    private void Combo3_TextSubmitted(ComboBox sender, ComboBoxTextSubmittedEventArgs args)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            bool isDouble = double.TryParse(sender.Text, out double newValue);
+
+            // Set the selected item if:
+            // - The value successfully parsed to double AND
+            // - The value is in the list of sizes OR is a custom value between 8 and 100
+            if (isDouble && (FontSizes.Contains(newValue) || (newValue < 100 && newValue > 8)))
+            {
+                // Update the SelectedItem to the new value. 
+                sender.SelectedItem = newValue;
+                editor.Document.Selection.CharacterFormat.Size = (float)newValue;
+            }
+            else
+            {
+                // If the item is invalid, reject it and revert the text. 
+                sender.Text = sender.SelectedValue.ToString();
+
+                var dialog = new ContentDialog
+                {
+                    Content = "The font size must be a number between 8 and 100.",
+                    CloseButtonText = "Close",
+                    DefaultButton = ContentDialogButton.Close
+                };
+                var task = dialog.ShowAsync();
+            }
+        }
+
+        // Mark the event as handled so the framework doesn’t update the selected item automatically. 
+        args.Handled = true;
     }
 }
