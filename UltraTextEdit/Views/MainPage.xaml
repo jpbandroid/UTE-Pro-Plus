@@ -24,28 +24,6 @@
                         <AppBarButton Icon="Redo" Label="Redo"/>
                         <AppBarButton Icon="Paste" Label="Paste"/>
                         <AppBarSeparator />
-
-                        <AppBarElementContainer>
-                            <ComboBox x:Name="Combo3" IsEditable="True" ItemsSource="{x:Bind FontSizes}" Width="100" Loaded="Combo3_Loaded"  />
-                        </AppBarElementContainer>
-                        <AppBarToggleButton Icon="Bold" Label="Bold" Checked="BoldButton_Click" Unchecked="BoldButton_Off"/>
-                        <AppBarToggleButton Icon="Italic" Label="Italic" Checked="ItalicButton_Click" Unchecked="ItalicButton_Off"/>
-                        <AppBarToggleButton Icon="Underline" Label="Underline" Checked="UnderlineButton_Click" Unchecked="UnderlineButton_Off"/>
-                        <AppBarToggleButton Label="Strikethrough" Checked="StrikeButton_Click" Unchecked="StrikeButton_Off">
-                            <AppBarToggleButton.Icon>
-                                <FontIcon Glyph="&#xEDE0;"/>
-                            </AppBarToggleButton.Icon>
-                        </AppBarToggleButton>
-                        <AppBarToggleButton Label="Superscript" Click="SuperscriptCheck">
-                            <AppBarToggleButton.Icon>
-                                <PathIcon Data="M18.736 3.5c-.543 0-.986.495-.986 1.023a.75.75 0 0 1-1.5 0C16.25 3.278 17.258 2 18.736 2c.855 0 1.684.4 2.15 1.117.49.751.5 1.724-.057 2.672-.285.484-.673.847-1.045 1.141-.187.148-.379.284-.557.41l-.078.056a17.45 17.45 0 0 0-.432.311c-.356.268-.619.511-.78.793h2.514a.75.75 0 0 1 0 1.5H17a.75.75 0 0 1-.75-.75c0-1.396.821-2.182 1.565-2.741.157-.119.32-.234.472-.341l.074-.052c.177-.126.34-.243.493-.363.306-.242.532-.47.682-.724.31-.53.229-.886.093-1.094-.158-.244-.486-.435-.893-.435Z M15.26 4.71c.06.562.385 1.043.847 1.318L10.987 12l5.583 6.512a.75.75 0 1 1-1.14.976L10 13.152l-5.43 6.336a.75.75 0 0 1-1.14-.976L9.013 12 3.431 5.488a.75.75 0 1 1 1.139-.976L10 10.848l5.26-6.137Z"/>
-                            </AppBarToggleButton.Icon>
-                        </AppBarToggleButton>
-                        <AppBarToggleButton Label="Subscript" Click="SubscriptCheck">
-                            <AppBarToggleButton.Icon>
-                                <PathIcon Data="M16.488 4.43a.75.75 0 0 1 .082 1.058L10.988 12l5.032 5.871c-.302.41-.555.906-.682 1.51L10 13.151l-5.43 6.336a.75.75 0 0 1-1.14-.976L9.013 12 3.431 5.488a.75.75 0 0 1 1.139-.976L10 10.848l5.43-6.336a.75.75 0 0 1 1.058-.081ZM17.75 15.523c0-.528.444-1.023.986-1.023.407 0 .735.19.893.434.136.21.218.566-.093 1.095-.15.255-.376.482-.682.724-.152.12-.316.237-.493.363l-.074.052c-.152.107-.315.222-.472.34-.744.56-1.565 1.346-1.565 2.742 0 .414.336.75.75.75h3.451a.75.75 0 0 0 0-1.5h-2.513c.16-.282.423-.525.779-.793.137-.103.279-.203.432-.312l.078-.054c.178-.127.37-.264.557-.41.372-.295.76-.658 1.045-1.142.557-.948.546-1.921.058-2.672C20.42 13.4 19.59 13 18.736 13c-1.478 0-2.486 1.278-2.486 2.523a.75.75 0 0 0 1.5 0Z"/>
-                            </AppBarToggleButton.Icon>
-                        </AppBarToggleButton>
                         <AppBarElementContainer>
                             <SplitButton>
                                 <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE790;" />
@@ -60,7 +38,7 @@
                             <ComboBox SelectedItem="Segoe UI" Width="175" ItemsSource="{x:Bind fonts}" SelectionChanged="ComboBox_Loaded"/>
                         </AppBarElementContainer>
                         <AppBarElementContainer>
-                            <TextBox PlaceholderText="Size"/>
+                            <ComboBox x:Name="Combo3" IsEditable="True" ItemsSource="{x:Bind FontSizes}" Width="100" Loaded="Combo3_Loaded"  />
                         </AppBarElementContainer>
                         <AppBarToggleButton Icon="Bold" Label="Bold" />
                         <AppBarToggleButton Icon="Italic" Label="Italic" />
