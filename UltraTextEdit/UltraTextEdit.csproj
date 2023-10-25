@@ -23,9 +23,6 @@
     <None Remove="MainWIndow.xaml" />
     <None Remove="Views\VersionDialog.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Remove="Views\ImageOptionsDialog.xaml" />
-  </ItemGroup>
 
   <ItemGroup>
     <Manifest Include="$(ApplicationManifest)" />
@@ -46,9 +43,6 @@
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\ImageOptionsDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
     </None>
     <Page Update="ChangelogWIndow.xaml">
       <Generator>MSBuild:Compile</Generator>

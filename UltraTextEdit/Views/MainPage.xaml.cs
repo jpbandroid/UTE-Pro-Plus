@@ -206,7 +206,7 @@ public sealed partial class MainPage : Page
     private async void OpenButton_Click(object sender, RoutedEventArgs e)
     {
         // Open a text file.
-        FileOpenPicker open = App.MainWindow.CreateOpenFilePicker();
+        Windows.Storage.Pickers.FileOpenPicker open = App.MainWindow.CreateOpenFilePicker();
         open.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
         open.FileTypeFilter.Add(".rtf");
         open.FileTypeFilter.Add(".txt");
@@ -438,46 +438,4 @@ public sealed partial class MainPage : Page
         ChangelogWindow changelog = new ChangelogWindow();
         changelog.Activate();
     }
-
-    private async void ImageInsert_Click(object sender, RoutedEventArgs e)
-    {
-        FileOpenPicker open = App.MainWindow.CreateOpenFilePicker();
-        open.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-        open.FileTypeFilter.Add(".png");
-        open.FileTypeFilter.Add(".jpeg");
-        open.FileTypeFilter.Add("*");
-
-        Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
-        MainWindow window = new MainWindow();
-
-        if (file != null)
-        {
-            using IRandomAccessStream randAccStream = await file.OpenAsync(FileAccessMode.Read);
-            var properties = await file.Properties.GetImagePropertiesAsync();
-            int width = (int)properties.Width;
-            int height = (int)properties.Height;
-
-            ImageOptionsDialog dialog = new()
-            {
-                DefaultWidth = width,
-                DefaultHeight = height
-            };
-
-            ContentDialogResult result = await dialog.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                editor.Document.Selection.InsertImage((int)dialog.DefaultWidth, (int)dialog.DefaultHeight, 0, VerticalCharacterAlignment.Baseline, string.IsNullOrWhiteSpace(dialog.Tag) ? "Image" : dialog.Tag, randAccStream);
-                return;
-            }
-
-            // Insert an image
-            editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);
-        }
-            
-            
-            //_wasOpen = true;
-            //Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList.Add(file);
-            //Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.AddOrReplace("CurrentlyOpenFile", file);
-        }
-    }
+}
