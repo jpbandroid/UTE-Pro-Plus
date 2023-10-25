@@ -383,8 +383,8 @@
                             </SplitButton>
                         </AppBarElementContainer>
                         <AppBarElementContainer>
-                            <DropDownButton x:Name="Back" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27" FontSize="12" Width="50" Padding="0,0,5,0"  FontFamily="{StaticResource SymbolThemeFontFamily}" ToolTipService.ToolTip="Text highlight" BorderThickness="0,1,0,1">
-                                <DropDownButton.Flyout>
+                            <SplitButton x:Name="Back" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Padding="0,0,5,0"  FontFamily="{StaticResource SymbolThemeFontFamily}" ToolTipService.ToolTip="Text highlight" BorderThickness="0,1,0,1">
+                                <SplitButton.Flyout>
                                     <Flyout>
                                         <StackPanel>
                                             <Grid>
@@ -438,14 +438,14 @@
                                             <ColorPicker x:Name="BackPicker" ColorChanged="BackPicker_ColorChanged" Color="#00000000" Margin="0,15,0,0"/>
                                         </StackPanel>
                                     </Flyout>
-                                </DropDownButton.Flyout>
+                                </SplitButton.Flyout>
                                 <Grid>
                                     <TextBlock x:Name="BackAccent" Text="&#xE891;" Foreground="White" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="14"/>
                                     <Border Background="#FFFFBB00" Margin="1,1,1,11"/>
                                     <Border Background="#FFFF9800" Margin="2,5,2,8" CornerRadius="0,0,1,1"/>
                                     <TextBlock Text="&#xE193;" FontFamily="{StaticResource SymbolThemeFontFamily}" FontSize="14" />
                                 </Grid>
-                            </DropDownButton>
+                            </SplitButton>
                         </AppBarElementContainer>
                         <AppBarElementContainer>
                             <ComboBox SelectedItem="Segoe UI" Width="175" ItemsSource="{x:Bind fonts}" SelectionChanged="ComboBox_Loaded"/>
