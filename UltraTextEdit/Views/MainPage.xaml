@@ -42,6 +42,11 @@
                     <CommandBar Background="Transparent" DefaultLabelPosition="Right">
                         <AppBarButton Label="Share" Icon="Share"/>
                         <AppBarButton Label="Comments" Icon="Message"/>
+                        <AppBarButton Label="Changelog" Click="AppBarButton_Click2">
+                            <AppBarButton.Icon>
+                                <FontIcon Glyph="&#xE794;"/>
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarButton Label="About" Icon="Help" Click="AppBarButton_Click"/>
                     </CommandBar>
                 </controls:TabbedCommandBar.PaneFooter>

@@ -7,7 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winuiex="using:WinUIEx"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Title="UltraTextEdit">
 
     <Grid>
         <TabView Background="{x:Null}" BorderBrush="{x:Null}" x:Name="TabbedView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonClick="TabbedView_AddTabButtonClick" Margin="0, 8, 0, 0" TabCloseRequested="TabbedView_TabCloseRequested">

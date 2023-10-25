@@ -432,4 +432,10 @@ public sealed partial class MainPage : Page
         // Cancel flyout
         colorPickerButton.Flyout.Hide();
     }
+
+    private void AppBarButton_Click2(object sender, RoutedEventArgs e)
+    {
+        ChangelogWindow changelog = new ChangelogWindow();
+        changelog.Activate();
+    }
 }
