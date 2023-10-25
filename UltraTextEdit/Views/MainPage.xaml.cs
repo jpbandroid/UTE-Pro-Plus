@@ -11,6 +11,10 @@ using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
 using Microsoft.UI.Text;
 using Windows.Foundation.Metadata;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml.Shapes;
+using Windows.UI;
 
 namespace UltraTextEdit.Views;
 
@@ -323,37 +327,13 @@ public sealed partial class MainPage : Page
 
     private void StrikeButton_Click(object sender, RoutedEventArgs e)
     {
-
-    }
-
-    private void BoldButton_Off(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void ItalicButton_Off(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void UnderlineButton_Off(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void SuperscriptCheck(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void SubscriptCheck(object sender, RoutedEventArgs e)
-    {
-
-    }
-
-    private void StrikeButton_Off(object sender, RoutedEventArgs e)
-    {
-
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+            charFormatting.Strikethrough = FormatEffect.Toggle;
+            selectedText.CharacterFormat = charFormatting;
+        }
     }
 
     private async void DisplayAboutDialog()
@@ -374,5 +354,82 @@ public sealed partial class MainPage : Page
     private void AppBarButton_Click(object sender, RoutedEventArgs e)
     {
         DisplayAboutDialog();
+    }
+
+    private void BackPicker_ColorChanged(object Sender, ColorChangedEventArgs EvArgs)
+    {
+        //Configure font highlight
+        if (!(editor == null))
+        {
+            var ST = editor.Document.Selection;
+            if (!(ST == null))
+            {
+                _ = ST.CharacterFormat;
+                var Br = new SolidColorBrush(BackPicker.Color);
+                var CF = BackPicker.Color;
+                if (BackAccent != null) BackAccent.Foreground = Br;
+                ST.CharacterFormat.BackgroundColor = CF;
+            }
+        }
+    }
+
+    private void HighlightButton_Click(object Sender, RoutedEventArgs EvArgs)
+    {
+        //Configure font color
+        var BTN = Sender as Button;
+        var ST = editor.Document.Selection;
+        if (!(ST == null))
+        {
+            _ = ST.CharacterFormat.ForegroundColor;
+            var Br = BTN.Foreground;
+            BackAccent.Foreground = Br;
+            ST.CharacterFormat.BackgroundColor = (BTN.Foreground as SolidColorBrush).Color;
+        }
+    }
+
+    private void NullHighlightButton_Click(object Sender, RoutedEventArgs EvArgs)
+    {
+        //Configure font color
+        var ST = editor.Document.Selection;
+        if (!(ST == null))
+        {
+            _ = ST.CharacterFormat.ForegroundColor;
+            BackAccent.Foreground = new SolidColorBrush(Colors.Transparent);
+            ST.CharacterFormat.BackgroundColor = Colors.Transparent;
+        }
+    }
+
+    private void ColorButton_Click(object sender, RoutedEventArgs e)
+    {
+        // Extract the color of the button that was clicked.
+        Button clickedColor = (Button)sender;
+        var borderone = (Border)clickedColor.Content;
+        var bordertwo = (Border)borderone.Child;
+        var rectangle = (Rectangle)bordertwo.Child;
+        var color = (rectangle.Fill as SolidColorBrush).Color;
+        editor.Document.Selection.CharacterFormat.ForegroundColor = color;
+        //FontColorMarker.SetValue(ForegroundProperty, new SolidColorBrush(color));
+        editor.Focus(FocusState.Keyboard);
+    }
+
+    private void fontcolorsplitbutton_Click(Microsoft.UI.Xaml.Controls.SplitButton sender, Microsoft.UI.Xaml.Controls.SplitButtonClickEventArgs args)
+    {
+        // If you see this, remind me to look into the splitbutton color applying logic
+    }
+
+    private void ConfirmColor_Click(object sender, RoutedEventArgs e)
+    {
+        // Confirm color picker choice and apply color to text
+        Color color = myColorPicker.Color;
+        editor.Document.Selection.CharacterFormat.ForegroundColor = color;
+
+        // Hide flyout
+        colorPickerButton.Flyout.Hide();
+    }
+
+    private void CancelColor_Click(object sender, RoutedEventArgs e)
+    {
+        // Cancel flyout
+        colorPickerButton.Flyout.Hide();
     }
 }
