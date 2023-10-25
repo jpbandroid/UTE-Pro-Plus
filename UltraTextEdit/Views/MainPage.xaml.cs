@@ -456,20 +456,8 @@ public sealed partial class MainPage : Page
             var properties = await file.Properties.GetImagePropertiesAsync();
             int width = (int)properties.Width;
             int height = (int)properties.Height;
-
-            ImageOptionsDialog dialog = new()
-            {
-                DefaultWidth = width,
-                DefaultHeight = height
-            };
-
-            ContentDialogResult result = await dialog.ShowAsync();
-
-            if (result == ContentDialogResult.Primary)
-            {
-                editor.Document.Selection.InsertImage((int)dialog.DefaultWidth, (int)dialog.DefaultHeight, 0, VerticalCharacterAlignment.Baseline, string.IsNullOrWhiteSpace(dialog.Tag) ? "Image" : dialog.Tag, randAccStream);
-                return;
-            }
+            editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);
+            return;
 
             // Insert an image
             editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);

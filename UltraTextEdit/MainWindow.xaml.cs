@@ -94,6 +94,7 @@ namespace UltraTextEdit
             F.Navigate(typeof(MainPage));
             TI.Content = F;
 
+            TabbedView.Resources.TryAdd("TabViewItemHeaderBackgroundSelected", new SolidColorBrush(Colors.Transparent));
             TabbedView.TabItems.Add(TI);
             TabbedView.SelectedIndex = TabbedView.TabItems.IndexOf(TI);
             LoadBounds();
