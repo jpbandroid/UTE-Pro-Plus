@@ -480,10 +480,21 @@
                                 <FontIcon Glyph="&#xED58;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
-                        <AppBarButton Label="3D Models">
+                        <AppBarButton
+x:Name="AddLinkButton"
+ToolTipService.ToolTip="Insert link"
+                            Label="Link">
                             <AppBarButton.Icon>
-                                <FontIcon Glyph="&#xF158;" />
+                                <FontIcon FontSize="17" Glyph="&#xE71B;" />
                             </AppBarButton.Icon>
+                            <Button.Flyout>
+                                <Flyout Placement="Bottom">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBox x:Name="hyperlinkText" PlaceholderText="Link" AllowFocusOnInteraction="True"/>
+                                        <Button Margin="0,10,0,0" Click="AddLinkButton_Click">Add hyperlink to selected text</Button>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
                         </AppBarButton>
                         <AppBarSeparator/>
                         <AppBarButton Label="Add-ins">

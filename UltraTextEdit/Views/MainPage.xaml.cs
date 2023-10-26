@@ -15,6 +15,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Shapes;
 using Windows.UI;
+using Microsoft.UI.Xaml.Markup;
 
 namespace UltraTextEdit.Views;
 
@@ -467,5 +468,12 @@ public sealed partial class MainPage : Page
             //_wasOpen = true;
             //Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList.Add(file);
             //Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.AddOrReplace("CurrentlyOpenFile", file);
+        }
+    private void AddLinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            hyperlinkText.AllowFocusOnInteraction = true;
+            editor.Document.Selection.Link = $"\"{hyperlinkText.Text}\"";
+            editor.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), "#6194c7");
+            AddLinkButton.Flyout.Hide();
         }
     }
