@@ -496,6 +496,11 @@ ToolTipService.ToolTip="Insert link"
                                 </Flyout>
                             </Button.Flyout>
                         </AppBarButton>
+                        <AppBarButton
+Click="AddTableButton_Click"
+Label="Table">
+                            <FontIcon FontSize="17" Glyph="&#xF261;" />
+                        </AppBarButton>
                         <AppBarSeparator/>
                         <AppBarButton Label="Add-ins">
                             <AppBarButton.Icon>

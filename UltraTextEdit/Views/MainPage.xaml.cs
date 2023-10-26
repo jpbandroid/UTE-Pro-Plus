@@ -16,6 +16,7 @@ using Microsoft.UI;
 using Microsoft.UI.Xaml.Shapes;
 using Windows.UI;
 using Microsoft.UI.Xaml.Markup;
+using System.Text;
 
 namespace UltraTextEdit.Views;
 
@@ -476,4 +477,54 @@ public sealed partial class MainPage : Page
             editor.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), "#6194c7");
             AddLinkButton.Flyout.Hide();
         }
+
+    /* Method to create a table format string which can directly be set to 
+   RichTextBoxControl. Rows, columns and cell width are passed as parameters 
+   rather than hard coding as in previous example.*/
+    private String InsertTableInRichTextBox(int rows, int cols, int width)
+    {
+        //Create StringBuilder Instance
+        StringBuilder strTableRtf = new StringBuilder();
+
+        //beginning of rich text format
+        strTableRtf.Append(@"{\rtf1 ");
+
+        //Variable for cell width
+        int cellWidth;
+
+        //Start row
+        strTableRtf.Append(@"\trowd");
+
+        //Loop to create table string
+        for (int i = 0; i < rows; i++)
+        {
+            strTableRtf.Append(@"\trowd");
+
+            for (int j = 0; j < cols; j++)
+            {
+                //Calculate cell end point for each cell
+                cellWidth = (j + 1) * width;
+
+                //A cell with width 1000 in each iteration.
+                strTableRtf.Append(@"\cellx" + cellWidth.ToString());
+            }
+
+            //Append the row in StringBuilder
+            strTableRtf.Append(@"\intbl \cell \row");
+        }
+        strTableRtf.Append(@"\pard");
+        strTableRtf.Append(@"}");
+        var strTableString = strTableRtf.ToString();
+        editor.Document.Selection.SetText(TextSetOptions.FormatRtf, strTableString);
+        return strTableString;
+
     }
+
+    private void AddTableButton_Click(object sender, RoutedEventArgs e)
+    {
+        var dialogtable = new TableWindow();
+        dialogtable.Activate();
+        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, 1000);
+    }
+
+}
