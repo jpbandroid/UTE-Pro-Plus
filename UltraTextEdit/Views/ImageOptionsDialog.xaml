@@ -1,4 +1,4 @@
-﻿<ContentDialog
+﻿<Page
     x:Class="UltraTextEdit.Views.ImageOptionsDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -29,4 +29,4 @@
 
         <TextBox Text="{x:Bind Tag, Mode=TwoWay}" Header="Tag" Margin="0,8,0,0" />
     </StackPanel>
-</ContentDialog>
+</Page>
