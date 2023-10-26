@@ -507,6 +507,14 @@ Label="Table">
                                 <FontIcon Glyph="&#xECAA;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
+                        <AppBarButton
+Click="DateInsertionAsync"
+ToolTipService.ToolTip="Insert current Date/Time"
+                            Label="Date/Time">
+                            <AppBarButton.Icon>
+                                <FontIcon FontSize="17" Glyph="&#xE163;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                     </controls:TabbedCommandBarItem>
                 </controls:TabbedCommandBar.MenuItems>
             </controls:TabbedCommandBar>

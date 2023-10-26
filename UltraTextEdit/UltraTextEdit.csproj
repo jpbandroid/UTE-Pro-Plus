@@ -21,6 +21,7 @@
   <ItemGroup>
     <None Remove="ChangelogWIndow.xaml" />
     <None Remove="MainWIndow.xaml" />
+    <None Remove="Views\DateDialog.xaml" />
     <None Remove="Views\ImageOptionsDialog.xaml" />
     <None Remove="Views\TableDialog.xaml" />
     <None Remove="Views\TableWindow.xaml" />
@@ -47,6 +48,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\DateDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\TableWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
