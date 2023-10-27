@@ -467,6 +467,30 @@
                                 <FontIcon Glyph="&#xEDE0;"/>
                             </AppBarToggleButton.Icon>
                         </AppBarToggleButton>
+                        <AppBarButton
+Click="AlignLeftButton_Click"
+
+ToolTipService.ToolTip="Align left">
+                            <Viewbox MaxWidth="17" MaxHeight="17">
+                                <SymbolIcon Symbol="AlignLeft" />
+                            </Viewbox>
+                        </AppBarButton>
+                        <AppBarButton
+Click="AlignCenterButton_Click"
+
+ToolTipService.ToolTip="Align center">
+                            <Viewbox MaxWidth="17" MaxHeight="17">
+                                <SymbolIcon Symbol="AlignCenter" />
+                            </Viewbox>
+                        </AppBarButton>
+                        <AppBarButton
+Click="AlignRightButton_Click"
+
+ToolTipService.ToolTip="Align right">
+                            <Viewbox MaxWidth="17" MaxHeight="17">
+                                <SymbolIcon Symbol="AlignRight" />
+                            </Viewbox>
+                        </AppBarButton>
                         <AppBarElementContainer>
                             <SplitButton
 x:Name="TempDDB"

@@ -17,6 +17,7 @@ using Microsoft.UI.Xaml.Shapes;
 using Windows.UI;
 using Microsoft.UI.Xaml.Markup;
 using System.Text;
+using CommunityToolkit.Common.Parsers.Markdown;
 
 namespace UltraTextEdit.Views;
 
@@ -857,5 +858,42 @@ public sealed partial class MainPage : Page
         }
     }
 
+
     #endregion Templates
+
+    private void AlignLeftButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            // Apply the list style to the selected text.
+            var paragraphFormatting = selectedText.ParagraphFormat;
+            paragraphFormatting.Alignment = ParagraphAlignment.Left;
+
+        }
+    }
+
+    private void AlignCenterButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            // Apply the list style to the selected text.
+            var paragraphFormatting = selectedText.ParagraphFormat;
+            paragraphFormatting.Alignment = ParagraphAlignment.Center;
+
+        }
+    }
+
+    private void AlignRightButton_Click(object sender, RoutedEventArgs e)
+    {
+        ITextSelection selectedText = editor.Document.Selection;
+        if (selectedText != null)
+        {
+            // Apply the list style to the selected text.
+            var paragraphFormatting = selectedText.ParagraphFormat;
+            paragraphFormatting.Alignment = ParagraphAlignment.Right;
+
+        }
+    }
 }
