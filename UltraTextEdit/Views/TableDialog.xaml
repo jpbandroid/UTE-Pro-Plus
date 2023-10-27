@@ -36,6 +36,19 @@ SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
                                 x:Name="columnBox"
                                 Width="330"
                                 PlaceholderText="Columns" />
+        <TextBlock
+                        Margin="0,0,0,5"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Style="{StaticResource CaptionTextBlockStyle}"
+                        Text="Width" />
+
+        <TextBox
+                        x:Name="widthBox"
+                        Width="330"
+                        PlaceholderText="Width" />
+        <CheckBox x:Name="defaultWidth" Content="Default Width"/>
+
         <InfoBar
         x:Name="errorbox1"
 IsOpen="False"

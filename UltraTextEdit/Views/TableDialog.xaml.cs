@@ -30,6 +30,7 @@ namespace UltraTextEdit.Views
 
         public int rows;
         public int columns;
+        public int width;
 
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -43,8 +44,16 @@ namespace UltraTextEdit.Views
 
         public void variable_extraction()
         {
+            
             rows = Int32.Parse(rowBox.Text);
             columns = Int32.Parse(columnBox.Text);
+            if (defaultWidth.IsChecked == true)
+            {
+                width = 1000;
+            } else
+            {
+                width = Int32.Parse(widthBox.Text);
+            }
         }
     }
 }

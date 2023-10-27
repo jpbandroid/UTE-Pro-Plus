@@ -539,7 +539,7 @@ public sealed partial class MainPage : Page
         var dialogtable = new TableDialog();
         dialogtable.XamlRoot = this.XamlRoot;
         await dialogtable.ShowAsync();
-        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, 1000);
+        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, dialogtable.width);
     }
 
     private async void DateInsertionAsync(object sender, RoutedEventArgs e)
