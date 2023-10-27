@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace UltraTextEdit.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ImageOptionsDialog : Page
+    public sealed partial class ImageOptionsDialog : ContentDialog
     {
         public double DefaultWidth
         {
@@ -39,6 +39,12 @@ namespace UltraTextEdit.Views
         public ImageOptionsDialog()
         {
             InitializeComponent();
+
+            Loaded += ImageOptionsDialog_Loaded;
+        }
+
+        private void ImageOptionsDialog_Loaded(object sender, RoutedEventArgs e)
+        {
             WidthBox.Value = DefaultWidth;
             HeightBox.Value = DefaultHeight;
         }

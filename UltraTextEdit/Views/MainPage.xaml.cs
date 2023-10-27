@@ -458,18 +458,29 @@ public sealed partial class MainPage : Page
             var properties = await file.Properties.GetImagePropertiesAsync();
             int width = (int)properties.Width;
             int height = (int)properties.Height;
-            editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);
-            return;
+
+            ImageOptionsDialog dialog = new()
+            {
+                DefaultWidth = width,
+                DefaultHeight = height,
+                XamlRoot = this.XamlRoot
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                editor.Document.Selection.InsertImage((int)dialog.DefaultWidth, (int)dialog.DefaultHeight, 0, VerticalCharacterAlignment.Baseline, string.IsNullOrWhiteSpace(dialog.Tag) ? "Image" : dialog.Tag, randAccStream);
+                return;
+            }
 
             // Insert an image
             editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);
         }
-            
-            
-            //_wasOpen = true;
-            //Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList.Add(file);
-            //Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.AddOrReplace("CurrentlyOpenFile", file);
-        }
+        //_wasOpen = true;
+        //Windows.Storage.AccessCache.StorageApplicationPermissions.MostRecentlyUsedList.Add(file);
+        //Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.AddOrReplace("CurrentlyOpenFile", file);
+    }
     private void AddLinkButton_Click(object sender, RoutedEventArgs e)
         {
             hyperlinkText.AllowFocusOnInteraction = true;
@@ -520,10 +531,11 @@ public sealed partial class MainPage : Page
 
     }
 
-    private void AddTableButton_Click(object sender, RoutedEventArgs e)
+    private async void AddTableButton_Click(object sender, RoutedEventArgs e)
     {
-        var dialogtable = new TableWindow();
-        dialogtable.Activate();
+        var dialogtable = new TableDialog();
+        dialogtable.XamlRoot = this.XamlRoot;
+        await dialogtable.ShowAsync();
         InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, 1000);
     }
 
