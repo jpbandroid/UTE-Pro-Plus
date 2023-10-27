@@ -14,11 +14,10 @@
         <TextBlock Text="Changelog" Margin="15, 5, 15, 15"/>
         <RelativePanel Padding="5, 40, 5, 5">
             <StackPanel Orientation="Vertical" Margin="15,5,15,15" RelativePanel.AlignTopWithPanel="True">
-                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 1.3.0.0, released on 27 October 2023"/>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 1.4.0.0, released on 27 October 2023"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="What's New:"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to change the size of inserted images has been added"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to insert tables has been added"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to insert template styles has been added"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to change the width of tables has been added"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to change text alignment has been added"/>
             </StackPanel>
             <Button Content="OK" HorizontalAlignment="Stretch" x:Name="ok" Click="okclick" Style="{ThemeResource AccentButtonStyle}" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>
