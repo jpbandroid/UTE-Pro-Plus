@@ -352,7 +352,7 @@ public sealed partial class MainPage : Page
         ContentDialog aboutDialog = new ContentDialog()
         {
             XamlRoot = this.XamlRoot,
-            Title = "UltraTextEdit",
+            Title = "UltraTextEdit Pro Plus",
             CloseButtonText = "OK",
             DefaultButton = ContentDialogButton.Close,
             Content = new VersionDialog()
