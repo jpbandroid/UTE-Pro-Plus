@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winuiex="using:WinUIEx"
     mc:Ignorable="d"
-    Title="UltraTextEdit">
+    Title="UltraTextEdit Pro Plus">
 
     <Grid>
         <TabView Background="{x:Null}" BorderBrush="{x:Null}" x:Name="TabbedView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonClick="TabbedView_AddTabButtonClick" Margin="0, 8, 0, 0" TabCloseRequested="TabbedView_TabCloseRequested">
