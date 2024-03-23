@@ -9,7 +9,8 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="Version 2.0.0.0 (Build 2311.1)"/>
-        <TextBlock Text="© 2023 jpb, Ivirius"/>
+        <TextBlock Text="Version 10.0 (Build 25951.1000)"/>
+        <TextBlock Text="Dev Channel"/>
+        <TextBlock Text="© 2023-2024 jpb, Ivirius"/>
     </StackPanel>
 </Page>
