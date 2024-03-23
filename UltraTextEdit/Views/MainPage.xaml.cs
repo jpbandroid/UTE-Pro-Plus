@@ -902,4 +902,9 @@ public sealed partial class MainPage : Page
 
         }
     }
+
+    private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+    {
+            this.Frame.Navigate(typeof(SettingsPage));
+    }
 }

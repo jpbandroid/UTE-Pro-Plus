@@ -48,6 +48,8 @@
                             </AppBarButton.Icon>
                         </AppBarButton>
                         <AppBarButton Label="About" Icon="Help" Click="AppBarButton_Click"/>
+                        <AppBarSeparator/>
+                        <AppBarButton Label="Settings" Icon="Setting" Click="AppBarButton_Click_1"/>
                     </CommandBar>
                 </controls:TabbedCommandBar.PaneFooter>
                 <controls:TabbedCommandBar.MenuItems>
