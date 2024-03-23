@@ -33,7 +33,13 @@ public sealed partial class MainPage : Page
         get;
     }
 
-    public List<string> fonts => CanvasTextFormat.GetSystemFontFamilies().OrderBy(f => f).ToList();
+    public List<string> fonts
+    {
+        get
+        {
+            return CanvasTextFormat.GetSystemFontFamilies().OrderBy(f => f).ToList();
+        }
+    }
 
     public List<double> FontSizes
     {
