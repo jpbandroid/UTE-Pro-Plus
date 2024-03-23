@@ -14,10 +14,12 @@
         <TextBlock Text="Changelog" Margin="15, 5, 15, 15"/>
         <RelativePanel Padding="5, 40, 5, 5">
             <StackPanel Orientation="Vertical" Margin="15,5,15,15" RelativePanel.AlignTopWithPanel="True">
-                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 1.4.0.0, released on 27 October 2023"/>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 10.0.25951.1000, released on 23 March 2024"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="What's New:"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to change the width of tables has been added"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Ability to change text alignment has been added"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Name change to 'UltraTextEdit Pro Plus'"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Access to the Settings page has been enabled"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Upgrade to .NET 8"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Dependency updates"/>
             </StackPanel>
             <Button Content="OK" HorizontalAlignment="Stretch" x:Name="ok" Click="okclick" Style="{ThemeResource AccentButtonStyle}" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>
