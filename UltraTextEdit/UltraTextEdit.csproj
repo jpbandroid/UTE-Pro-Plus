@@ -14,8 +14,8 @@
 	<UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
-    <AssemblyVersion>10.0.25951.1000</AssemblyVersion>
-    <FileVersion>10.0.25951.1000</FileVersion>
+    <AssemblyVersion>10.0.25967.1000</AssemblyVersion>
+    <FileVersion>10.0.25967.1000</FileVersion>
     <Version>1.4.0</Version>
     <AssemblyName>UltraTextEdit Pro Plus</AssemblyName>
     <Authors>jpbandroid, Ivirius</Authors>

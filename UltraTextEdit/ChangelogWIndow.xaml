@@ -14,7 +14,7 @@
         <TextBlock Text="Changelog" Margin="15, 5, 15, 15"/>
         <RelativePanel Padding="5, 40, 5, 5">
             <StackPanel Orientation="Vertical" Margin="15,5,15,15" RelativePanel.AlignTopWithPanel="True">
-                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 10.0.25951.1000, released on 23 March 2024"/>
+                <TextBlock FontSize="24" FontWeight="SemiBold" Text="Version 10.0.25967.1000, released on 26 March 2024"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="What's New:"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="• Name change to 'UltraTextEdit Pro Plus'"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="• Access to the Settings page has been enabled"/>
