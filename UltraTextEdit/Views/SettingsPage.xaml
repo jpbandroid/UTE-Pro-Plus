@@ -17,9 +17,6 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button Style="{ThemeResource NavigationBackButtonNormalStyle}" Click="BackButton_Click"/>
-            <TextBlock
-    x:Uid="Settings_Title"
-    Style="{StaticResource PageTitleStyle}" />
         </StackPanel>
         <StackPanel
             Grid.Row="1"
