@@ -16,9 +16,9 @@
             <StackPanel Orientation="Vertical" Margin="15,5,15,15" RelativePanel.AlignTopWithPanel="True">
                 <TextBlock FontSize="24" FontWeight="SemiBold" TextWrapping="WrapWholeWords" Text="Version 10.0.25967.1000, released on 26 March 2024"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="What's New:"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Name change to 'UltraTextEdit Pro Plus'"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Access to the Settings page has been enabled"/>
-                <TextBlock TextWrapping="WrapWholeWords" Text="• Upgrade to .NET 8"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Redesigned Settings page using the Windows Community Toolkit (WCT)"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• Text typed before entering the Settings page doesn't disappear after entering and closing it"/>
+                <TextBlock TextWrapping="WrapWholeWords" Text="• You can now close the Settings page!"/>
                 <TextBlock TextWrapping="WrapWholeWords" Text="• Dependency updates"/>
             </StackPanel>
             <Button Content="OK" HorizontalAlignment="Stretch" x:Name="ok" Click="okclick" Style="{ThemeResource AccentButtonStyle}" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"/>
