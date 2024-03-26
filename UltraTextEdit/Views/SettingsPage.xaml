@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:helpers="using:UltraTextEdit.Helpers"
-    xmlns:xaml="using:Microsoft.UI.Xaml"
+    xmlns:xaml="using:Microsoft.UI.Xaml" xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
     <Page.Resources>
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
@@ -15,63 +15,90 @@
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <TextBlock
-            Grid.Row="0"
-            x:Uid="Settings_Title"
-            Style="{StaticResource PageTitleStyle}" />
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Style="{ThemeResource NavigationBackButtonNormalStyle}" Click="BackButton_Click"/>
+            <TextBlock
+    x:Uid="Settings_Title"
+    Style="{StaticResource PageTitleStyle}" />
+        </StackPanel>
         <StackPanel
-            Grid.Row="1" 
+            Grid.Row="1"
             x:Name="ContentArea">
-            <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
-            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <TextBlock x:Uid="Settings_Theme" />
+            <ScrollViewer Grid.Row="1" x:Name="view">
+                <StackPanel Orientation="Vertical" Padding="20" Spacing="5">
+                    <TextBlock Text="Settings" Margin="0,0,0,10" FontSize="32" FontWeight="SemiBold" />
 
-                <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                    <RadioButton
-                        x:Uid="Settings_Theme_Light"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Dark"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Default"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
-                        FontSize="15"
-                        GroupName="AppTheme">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Default</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
+                    <TextBlock Text="Personalization" Margin="0,0,0,10" FontSize="18" FontWeight="SemiBold" />
+                    <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                        <controls:SettingsExpander Header="Theme" Description="Change app theme here">
+                            <controls:SettingsExpander.Items>
+                                <controls:SettingsCard HorizontalContentAlignment="Left"
+                                               ContentAlignment="Left">
+                                    <StackPanel>
+                                        <RadioButton
+    x:Uid="Settings_Theme_Light"
+    Command="{x:Bind ViewModel.SwitchThemeCommand}"
+    IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
+    FontSize="15"
+    GroupName="AppTheme">
+                                            <RadioButton.CommandParameter>
+                                                <xaml:ElementTheme>Light</xaml:ElementTheme>
+                                            </RadioButton.CommandParameter>
+                                        </RadioButton>
+                                        <RadioButton
+    x:Uid="Settings_Theme_Dark"
+    Command="{x:Bind ViewModel.SwitchThemeCommand}"
+    IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
+    FontSize="15"
+    GroupName="AppTheme">
+                                            <RadioButton.CommandParameter>
+                                                <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                                            </RadioButton.CommandParameter>
+                                        </RadioButton>
+                                        <RadioButton
+    x:Uid="Settings_Theme_Default"
+    Command="{x:Bind ViewModel.SwitchThemeCommand}"
+    IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
+    FontSize="15"
+    GroupName="AppTheme">
+                                            <RadioButton.CommandParameter>
+                                                <xaml:ElementTheme>Default</xaml:ElementTheme>
+                                            </RadioButton.CommandParameter>
+                                        </RadioButton>
+                                    </StackPanel>
+                                </controls:SettingsCard>
+                            </controls:SettingsExpander.Items>
+                        </controls:SettingsExpander>
+                    </StackPanel>
+
+                    <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                        <!--<TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind VersionDescription, Mode=OneWay}" />-->
+                        <controls:SettingsCard Header="UltraTextEdit Pro Plus - 10.0.25967.1000" Description="© 2024 jpbandroid, Ivirius">
+                            <controls:SettingsCard.HeaderIcon>
+                                <BitmapIcon UriSource="ms-appx:///Assets/Square44x44Logo.png" ShowAsMonochrome="False"/>
+                            </controls:SettingsCard.HeaderIcon>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard
+                               ActionIconToolTip="Open GitHub repo in browser"
+                               Description="Go there to submit issues, view pull requests, and check out the code!!"
+                               Header="GitHub repo"
+                               IsClickEnabled="True"
+                               IsEnabled="True"
+                            Click="GH_Navigate">
+                            <controls:SettingsCard.ActionIcon>
+                                <FontIcon Glyph="&#xE8A7;"/>
+                            </controls:SettingsCard.ActionIcon>
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE943;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                        </controls:SettingsCard>
+
+
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-
-            <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-            <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                <TextBlock Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" />
-
-                <TextBlock
-                    x:Uid="Settings_AboutDescription"
-                    Margin="{StaticResource XSmallTopMargin}"
-                    Style="{ThemeResource BodyTextBlockStyle}" />
-                <HyperlinkButton x:Uid="SettingsPage_PrivacyTermsLink" Margin="{StaticResource SettingsPageHyperlinkButtonMargin}" />
-            </StackPanel>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Page>

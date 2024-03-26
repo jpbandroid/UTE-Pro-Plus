@@ -35,6 +35,8 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.0.240109" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.2.24128.5" />
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.2.0" />
