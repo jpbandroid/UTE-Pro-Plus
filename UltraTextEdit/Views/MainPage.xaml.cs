@@ -502,7 +502,7 @@ public sealed partial class MainPage : Page
     /* Method to create a table format string which can directly be set to 
    RichTextBoxControl. Rows, columns and cell width are passed as parameters 
    rather than hard coding as in previous example.*/
-    private String InsertTableInRichTextBox(int rows, int cols, int width)
+    private String InsertTableInRichTextBox(int rows, int cols, int width, int height)
     {
         //Create StringBuilder Instance
         StringBuilder strTableRtf = new StringBuilder();
@@ -512,6 +512,7 @@ public sealed partial class MainPage : Page
 
         //Variable for cell width
         int cellWidth;
+        int cellHeight = 1440;
 
         //Start row
         strTableRtf.Append(@"\trowd");
@@ -528,6 +529,7 @@ public sealed partial class MainPage : Page
 
                 //A cell with width 1000 in each iteration.
                 strTableRtf.Append(@"\cellx" + cellWidth.ToString());
+                strTableRtf.Append(@"\trrh" + cellHeight.ToString());
             }
 
             //Append the row in StringBuilder
@@ -546,7 +548,7 @@ public sealed partial class MainPage : Page
         var dialogtable = new TableDialog();
         dialogtable.XamlRoot = this.XamlRoot;
         await dialogtable.ShowAsync();
-        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, dialogtable.width);
+        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, dialogtable.width, 1440);
     }
 
     private async void DateInsertionAsync(object sender, RoutedEventArgs e)
