@@ -31,6 +31,7 @@ namespace UltraTextEdit.Views
         public int rows;
         public int columns;
         public int width;
+        public int height;
 
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -53,6 +54,13 @@ namespace UltraTextEdit.Views
             } else
             {
                 width = Int32.Parse(widthBox.Text);
+            }
+            if (defaultHeight.IsChecked == true)
+            {
+                height = 100;
+            } else
+            {
+                height = Int32.Parse(heightBox.Text);
             }
         }
     }

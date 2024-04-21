@@ -512,7 +512,7 @@ public sealed partial class MainPage : Page
 
         //Variable for cell width
         int cellWidth;
-        int cellHeight = 1440;
+        int cellHeight;
 
         //Start row
         strTableRtf.Append(@"\trowd");
@@ -526,6 +526,7 @@ public sealed partial class MainPage : Page
             {
                 //Calculate cell end point for each cell
                 cellWidth = (j + 1) * width;
+                cellHeight = height;
 
                 //A cell with width 1000 in each iteration.
                 strTableRtf.Append(@"\cellx" + cellWidth.ToString());
@@ -548,7 +549,7 @@ public sealed partial class MainPage : Page
         var dialogtable = new TableDialog();
         dialogtable.XamlRoot = this.XamlRoot;
         await dialogtable.ShowAsync();
-        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, dialogtable.width, 1440);
+        InsertTableInRichTextBox(dialogtable.rows, dialogtable.columns, dialogtable.width, dialogtable.height);
     }
 
     private async void DateInsertionAsync(object sender, RoutedEventArgs e)

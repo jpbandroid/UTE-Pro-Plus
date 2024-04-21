@@ -49,6 +49,19 @@ SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
                         PlaceholderText="Width" />
         <CheckBox x:Name="defaultWidth" Content="Default Width"/>
 
+        <TextBlock
+                Margin="0,0,0,5"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="Height" />
+
+        <TextBox
+                x:Name="heightBox"
+                Width="330"
+                PlaceholderText="Height" />
+        <CheckBox x:Name="defaultHeight" Content="Default Height"/>
+
         <InfoBar
         x:Name="errorbox1"
 IsOpen="False"
